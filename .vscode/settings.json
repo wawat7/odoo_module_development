@@ -1,0 +1,7 @@
+{
+  "python.languageServer": "None",
+  "python.analysis.extraPaths": [
+    "./addons",
+    "../odoo-source-17"
+  ]
+}

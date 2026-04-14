@@ -2,6 +2,7 @@ DOCKER = docker
 DOCKER_COMPOSE = $(DOCKER) compose
 DB_USER = odoo
 DB_NAME = odoo_development
+DB_PASSWORD = odoo
 CONTAINER_APP = odoo
 CONTAINER_DB = odoo-postgres
 
@@ -27,6 +28,10 @@ down:
 
 restart-app:
 	$(DOCKER) restart $(CONTAINER_APP)
+
+restart-app-estate:
+	$(DOCKER_COMPOSE) up -d
+	$(DOCKER) exec -it $(CONTAINER_APP) odoo -c /etc/odoo/odoo.conf -d $(DB_NAME) -u estate --stop-after-init
 
 restart-db:
 	$(DOCKER) restart $(CONTAINER_DB)
