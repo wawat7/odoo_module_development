@@ -32,6 +32,7 @@ restart-app:
 restart-app-estate:
 	$(DOCKER_COMPOSE) up -d
 	$(DOCKER) exec -it $(CONTAINER_APP) odoo -c /etc/odoo/odoo.conf -d $(DB_NAME) -u estate --stop-after-init
+	$(DOCKER) restart $(CONTAINER_APP)
 
 restart-db:
 	$(DOCKER) restart $(CONTAINER_DB)
